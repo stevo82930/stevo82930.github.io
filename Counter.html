@@ -1,0 +1,500 @@
+ <!DOCTYPE html>
+<html>
+
+<head>
+	<Title>Counter</Title> 
+	
+	<!-- 
+C:\Users\stevo\Desktop\Toolbox Project\Counter.html
+	/-->
+	
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+	
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+	<link rel="stylesheet" href="cdn.css" onerror="this.onerror=null;this.href='local.css';" />
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery-3.6.0.js"></script> 
+	
+	<style>
+		:root{
+			--backColor1:#000000;
+			--backColor2:#000000;
+			--fontColor1:#505050;
+			--fontColor2:#9ACD32;
+		}
+		.disable-select {
+			 user-select: none; /* supported by Chrome and Opera */
+			 -webkit-user-select: none; /* Safari */
+			 -khtml-user-select: none; /* Konqueror HTML */
+			 -moz-user-select: none; /* Firefox */
+			 -ms-user-select: none; /* Internet Explorer/Edge */
+		}
+		* {
+			color: var(--fontColor1);
+			text-align: center;
+			font-size: 1.3em;
+			text-shadow: 12px 12px 15px #777777;
+			<!--box-sizing: border-box;/-->
+		}
+		
+		.mainContainer {
+			border-radius: 5px;
+			padding: 20px;
+		}
+		.header-block {
+			height:4em;
+		}
+		.sr-block {
+			width: 20%;
+			max-width: 250px;
+			background-color: #55555500;
+			margin-top:-20px;
+		}	
+		#tally {
+			color: var(--fontColor2);
+			font: bold 1.3em Georgia, serif
+			
+		}
+		#mainButton {
+        	text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+			color: var(--fontColor2);
+			border: none;
+			background-color: #00000000;
+			padding: 20% 20%;
+			font-size: 3em;
+			text-shadow: 2px 2px 5px #999999;
+			border-radius: 48%;
+			opacity: 1.00;
+		}
+		#mainButton:active { 
+			transform: translateY(6px);
+			box-shadow: inset 8px 6px 10px rgba(0,0,0,0.17), inset -8px -8px 4px #ffffff;
+		}
+        input {
+			display: inline-block;
+			color: var(--fontColor2);
+			width:120px;
+			height:80px;
+        	font-size:1.3em;
+            border: 2px solid var(--fontColor2);
+			text-shadow: 2px 2px 5px #999999;
+            border-radius: 8px;
+			
+        }
+		#perMinute {
+			display: inline-block;
+        }
+		.row {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			background-color: #55555500;
+			justify-content: center;
+			padding: 1px;
+		}
+		
+		@media screen and (max-width: 500px) {
+			.row{
+				justify-content: space-between;
+			}
+			.sr-block{
+				width:50%;
+				max-width: 50%;
+				margin-top: 0px;
+			}
+			#perMinute {
+				font-size:1em;
+			}
+			input {
+				width:100px;
+				height:60px;
+				font-size:1em;
+			}
+			h1 {
+				font-size:1em;
+				font-weight: bold;
+			}
+			#tally {
+			font: bold 1em Georgia, serif
+		}
+		}
+	</style>
+	<script>
+		/*var r = document.querySelector(':root');
+		r.style.setProperty('--blue', 'lightblue');
+		//https://www.w3schools.com/css/css3_variables_javascript.asp
+		
+		 /* Copy the text inside the text field 
+  		navigator.clipboard.writeText(copyText.value);
+		  
+			<p id="myP" onmousedown="mouseDown()" onmouseup="mouseUp()">
+			<p ontouchend="myFunction(event)">Touch me!</p>
+			https://api.jquery.com/mousedown/	
+		  https://api.jquery.com/mousedown/
+		  the touch up event maybe https://stackoverflow.com/questions/6139225/how-to-detect-a-long-touch-pressure-with-javascript-for-android-and-iphone
+
+			https://stackoverflow.com/questions/17831395/how-can-i-detect-a-click-in-an-ontouch-listener
+
+			This one is pretty helpful.
+			https://stackoverflow.com/questions/37273142/would-onclick-event-work-on-touch-on-touch-screen-devices
+
+
+		On most devices, the other answers work. For me, to ensure it worked on every device (in react) I had to wrap it in an anchor tag <a> and add the following:
+		:hover, :focus, :active (in that order), as well as role="button" and tabIndex="0"
+
+
+		  
+		  */
+
+		//Stevo's tester. use like this: sr.x || sr.ct++ || alert(sr.ct) || sr.x = "testing"; //ect.
+		var  sr =  {
+			ct : 0,
+			history : "Testing",
+			set x (testObject) {
+				sr.ct++;
+				const originalElement = event.target || event.srcElement || event.originalTarget;
+				const originalTag= event.target.tagName;
+				const testObjectType = typeof(testObject);
+				const testInfo = {Syntax: "sr.x = ", Count: sr.ct, Content:testObject, Type: testObjectType, Element:originalElement, Tag:originalTag};
+				console.table({testInfo});
+				if(testObjectType == "object")console.table({testObject});
+				else if(testObject == "bug")debugger;
+				sr.history = testObject;
+			},
+			get x () {
+				sr.ct++;
+				const originalElement = event.target || event.srcElement || event.originalTarget;
+				const originalTag= event.target.tagName;
+				const testX = {Syntax: "sr.x;", Count: sr.ct, Element:originalElement, Tag:originalTag};
+				console.log(testX);
+				sr.history = sr.ct;
+			},
+			get stop () {
+				const alerted = {Syntax: "sr.stop;", Count: "unchanged at " + sr.ct, Message:sr.history};
+				console.table({alerted});
+				//This could have the ability to give a different result if the sr.stop is called while all alone.
+				//if the sr.ct is equal to sr.history then the alert should be "testing" or sr.ct with a description as to why. etc.
+				alert(sr.history);
+			}
+		}
+		var countInput = -1;// Starts at -1 so that the first press is to 0.
+		var multiplier = 1;
+		var initiation = new Date().getTime();//First press of the main button
+		var distance = 0;//From time stamps
+		var isMobile = false; //initiate as false.
+		var tallyMark = [0];//Array for separating counts.
+		var accuCount = 0;//for  accumulative counting without disrupting accumulative.
+		
+
+		//This is to set the best press for the input. Then set the functions in jquerry
+		function isTouch() {
+		try{ document.createEvent("TouchEvent"); return true; }
+		catch(e){ return false; }
+		}
+		
+		if(isTouch()){
+			$(document).ready(
+				function(){
+					$("#mainButton").on('touchstart',function(){
+						onPress();
+					});
+					$("#tally").on('touchstart',function(){
+						updateTally();
+					});
+					$("#perMinute").on('touchstart',function(){
+						resetAll();
+					});
+			});
+		}else{
+			$(document).ready(
+				function(){
+					$("#mainButton").mousedown(function(){
+						onPress();
+					});
+					$("#tally").mousedown(function(){
+						updateTally();
+					});
+					$("#perMinute").mousedown(function(){
+						resetAll();
+					});
+			});
+		}
+		
+
+
+		//Long touch for mobile. I dont think that it will work on long click.
+		var onlongtouch; 
+		var timer;
+		var touchduration = 800; //Touch length
+
+		function touchstart(e) {
+			//e.preventDefault();
+			if (!timer) {
+				timer = setTimeout(onlongtouch, touchduration);
+			}
+		}
+
+		function touchend() {
+			//stops short touches from firing the event
+			if (timer) {
+				clearTimeout(timer);
+				timer = null;
+			}
+		}
+
+		onlongtouch = function() { 
+			
+			timer = null;
+			//onPress();
+			alert("this should tell me on long touch if touch device" + istouch());
+		};
+
+		document.addEventListener("DOMContentLoaded", function(event) { 
+			//SR
+			var el = document.getElementById('mainButton');
+			el.addEventListener("touchstart", touchstart, false);
+			el.addEventListener("touchend", touchend, false);
+		});
+
+		
+
+	</script>
+
+</head>
+
+
+<body>
+	<div class="mainContainer">
+		<div class="header-block">
+			<h1 id="header">Per Minute Counter</h1>
+		</div>
+		<p id="tally" class="disable-select">Press "Pules" once for every item/event as it occurs. </p>
+		<div class="row">
+			<div class="sr-block">
+				<p id="perMinute" class="disable-select">--</p>
+			</div>
+			<div class="sr-block"> 
+				<form action="#" onsubmit="onSubmitMultiplier();return false;">
+					<input type="number" id="inputMultiplier" value="1">
+				</form>
+			</div>
+		</div>
+		<br>
+		<button type="button" id="mainButton" class="disable-select">Pulse</button>
+		
+
+
+	</div>
+</body>
+
+
+<script>
+	//This will handle the update every 1 second that elapses.
+	// live iput https://www.w3schools.com/html/html_form_elements.asp
+	
+	x = setInterval(function(){
+		// This gets the current time so that it can be compared with initiation.
+  		var now = new Date().getTime();
+
+		// Find the distance between now and the count down date
+		distance = Math.floor((now - initiation) / 1000);
+
+		//Will update the readouts to the user. 
+		if(countInput >= 0 && distance > 0){
+				document.getElementById("perMinute").innerHTML = avgCalc();
+		}
+		
+		
+	},1000);	
+	
+	//This just adds a subit function for .blur for the multiplier input.
+	function onSubmitMultiplier(){
+		document.getElementById("inputMultiplier").blur();
+	}
+	
+	//Controls the input of the big button. Will record the first timestamp in the initiation variable.
+	function onPress() {
+		var $ = Number(document.getElementById("inputMultiplier").value);
+		if(countInput == -1){
+			initiation = new Date().getTime();
+		};
+		countInput++;
+		if(countInput > 0){
+			
+			accuCount += $;
+		};
+		updateReadout();
+		//document.getElementById("perMinute").innerHTML = avgCalc();
+	}
+	
+	//Will do the PPM calculation. average is number divided by the seconds elapsed.
+	//The final ")*10) / 10" is to round to 1 decimal point after "math.floor(".
+	function avgCalc() {
+		multiplier = document.getElementById("inputMultiplier").value;
+		var average = Math.floor((((countInput / distance) * 60) * multiplier)*10) / 10;
+		return average;
+	}
+	
+	function updateReadout() {
+		var PM = document.getElementById("perMinute").innerHTML;
+		document.getElementById("header").innerHTML = PM	+ " per minute, " +
+		countInput + " inputs and "+ accuCount + " accumulative.";
+	}
+
+	//To make a seperator dor counting stuff.
+	function updateTally() {
+		//tallyMark = [5,5,5,5,5]//for testing
+		var freshMultiplier = document.getElementById("inputMultiplier").value;
+		var sum = tallyMark.reduce((partialSum, a) => partialSum + a, 0);
+		var newEntry = accuCount - sum;
+		var $$ = "";
+		tallyMark.length > 10 ? $$ = "" : $$ = "History: "
+		if(countInput > 0){
+			tallyMark[0] == 0 ? tallyMark[0] = newEntry : tallyMark.push(newEntry);
+			document.getElementById("tally").innerHTML = $$+ tallyMark;
+		};
+	}
+
+	//This does not interfere with the avgCalc because I wanted them to separate.
+	function resetAll() {
+		
+		countInput = -1;
+		multiplier = 1;
+		distance = 0;
+		tallyMark = [0];
+		accuCount = 0;
+		infoSummary = document.getElementById("header").innerHTML;
+		navigator.clipboard.writeText(infoSummary);
+		document.getElementById("perMinute").innerHTML = "--";
+		document.getElementById("header").innerHTML = "Per Minute Counter";
+		document.getElementById("tally").innerHTML = "Everything has been reset. Info has been added to clipboard.";
+		
+	}
+
+	function xTest(stuff){
+		alert("Test Trigger: " + stuff);
+	}
+
+
+
+
+
+
+
+	
+</script>
+
+
+
+</html>
+
+
+
+
+<!--  
+
+
+
+
+
+\/
+
+			
+			
+			
+			
+			
+			
+
+/\
+
+
+
+
+
+
+
+
+
+
+
+
+var count = 1;
+var calc = 0;
+var incr = 1;
+var high = 0;
+var timer = 0;
+var userMultiplier = 0;
+var text = 0;
+var rset = false;
+var once = false;
+
+
+function btn_OnTouch(){
+nmt.SetText(count);
+
+if (count  == 1 && once == false){ 
+timer.interval = setInterval(tensec,1000);
+once = true;
+txt.SetText(00);
+}
+rset = false;
+count += 1;
+
+//delete timer.interval
+}
+
+function neg_count(){//If you touch the counter up top it goes back
+count -= 1
+nmt.SetText(count);
+}
+
+
+function multifn()
+{
+    edt.SetText( "" );
+}
+
+function reset()
+{
+app.ShowPopup("Copied to Clipboard and App Reset");
+app.SetClipboardText(parseFloat(txt.GetText()));
+rset = true;
+count = -1;
+calc = 0;
+incr = 1;
+high = 0;
+timer = 0;
+multi = 0;
+txt.SetText(00);
+txt.SetTextColor("#505050");
+nmt.SetText(0);
+}
+
+function tensec( )
+{
+if (rset == false){
+    multi = edt.GetText();
+    calc = (count / incr) * 60;
+    calc *=  parseFloat(multi);
+    if (incr >= 60) {
+        if (calc > high) high = calc;
+        text = high;
+        txt.SetTextColor("#ff8000");}
+    else text = calc;
+    txt.SetText(text.toString().slice(0,5));
+    incr += 1;
+    app.SaveNumber("ppm", high, 20 );
+}
+}
+}
+}
+
+//-->
