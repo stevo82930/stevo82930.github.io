@@ -4,35 +4,32 @@
 <head>
 	<Title>The Duke of Afthairetos</Title> 
 	
-	<!-- 
-C:\Users\stevo\Desktop\Toolbox Project\Stack Calculator.html
-below is if I had an either/or .css file to reference
-<link rel="stylesheet" href="cdn.css" onerror="this.onerror=null;this.href='local.css';" />
-	/-->
+	
 	
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="theme-color" content="#9ACD32">
+	
 	<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
 	
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-	
-	
-	
+    <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript" src="jquery-3.6.0.js"></script> 
-	
+	<!--CSS STYLE-->
 	<style>
+		
 		:root{
 			--backColor1:#000000;
 			--backColor2:#000000;
-			--fontColor1:#f0f0f0;
-			--fontColor2:#66ccff;
+			--fontColor1:#e7e7e7;
+			--fontColor2:#96c300;
 			
 		}
-		   
+		
+
+
+		
 		.disable-select {
 			 user-select: none; /* supported by Chrome and Opera */
 			 -webkit-user-select: none; /* Safari */
@@ -43,7 +40,7 @@ below is if I had an either/or .css file to reference
 		
 		* {
 			color: var(--fontColor1);
-			font-size: 1.3em;
+			font-size: 1.12em;
 			text-shadow: 10px 10px 10px #00000099;
 			
 		}
@@ -52,13 +49,17 @@ below is if I had an either/or .css file to reference
 		}
 		
 		body {
-			height: 100%;
 			text-align: center;
-			background-repeat: no-repeat;
+			font-family: Arial;
 			background-attachment: fixed;
 			background-color: DarkGrey; /* For browsers that do not support gradients */
 			background-image: linear-gradient(DarkGrey, Black);
+			background-position: center;
+			background-image: linear-gradient(rgba(0, 0, 0, 0.75),rgba(0, 0, 0, 1)) , url('White Texture One.jpg')
+			
 		}
+		
+		/* TEXT CONTROL STYLES*/
 		
 		myTitles {/*This is used to highlight words in a text.*/
 			color: var(--fontColor2);
@@ -73,10 +74,15 @@ below is if I had an either/or .css file to reference
 			font-size: 1em;
 			font-weight: bold;
 			text-shadow: 2px 2px 10px #00000099;
+			padding: 5px;
 		}
 				
 		.italicized  {
 			font-style: italic;
+		}
+		
+		.bolden {
+			font-weight: bold;
 		}
 		
 		.shrinkText {
@@ -100,6 +106,22 @@ below is if I had an either/or .css file to reference
 			text-shadow: 100px, 100px;
 		}
 		
+		.jumbo {
+			font-size: 1.3em;
+			font-weight: bold;
+			padding: 0;
+			/*padding for buttons in the input controller*/
+		}
+		
+		hr.small {
+			margin-left:40%;
+			margin-right:40%;
+			margin-top:2px;
+			margin-bottom:2px;
+		}
+		
+		/* STYLES FOR THE VARIOUS DRAWERS  filter: blur(5px);*/
+		
 		.inputCanvas {
 			height: 0%;
 			width: 100%;
@@ -113,7 +135,7 @@ below is if I had an either/or .css file to reference
 			text-align:center;
 		}
 		
-		.detailsCanvas {
+		div.detailsCanvas {
 			height: 0%;
 			width: 100%;
 			position: fixed;
@@ -126,7 +148,7 @@ below is if I had an either/or .css file to reference
 			text-align:center;
 		}
 		
-		.listCanvas {
+		div.listCanvas {
 			height: 100%;
 			width: 0%;
 			position: fixed;
@@ -141,7 +163,7 @@ below is if I had an either/or .css file to reference
 			text-align: left;
 		}
 		
-		.leftListCanvas {
+		div.leftListCanvas {
 			height: 100%;
 			width: 0%;
 			position: fixed;
@@ -190,6 +212,68 @@ below is if I had an either/or .css file to reference
 			text-align: center;
 		}
 		
+		div.middleTabCanvas {
+			height: 0%;
+			width: 90%;
+			position: fixed;
+			margin: auto;
+			top: 0;
+			left: 0; 
+			bottom: 0; 
+			right: 0;
+			max-height: 90%;
+			max-width: 90%;
+			z-index: 2;
+			border-radius: 30px;
+			background-color: #ffffffcc;
+			overflow-y: auto; 
+			transition: 0.25s;
+			text-align: center;
+		}
+		
+		.inputCanvas input {
+			color: var(--fontColor2);
+			background-color: #00000000;
+			width:50%;
+			height:1.5em;
+        	font-size:1.6em;
+            border: none;
+			text-shadow: 2px 2px 5px black;
+            border-radius: 8px;
+		}
+		
+		/* SMALLER DIV ELEMEMTS FOR POSITIONING */
+		
+		
+		br.inlandscape {
+			display:block;
+		}
+		
+		div.triplet {
+			overflow: visible;
+			height: 30%;
+			width: 100%;
+			text-align: center;
+		}
+		
+		div.stabilizer {
+			display: inline-block;
+			height: 100%;
+			width: 30%;
+			margin: 0;
+			padding: 0; 
+			/*padding for buttons in the input controller*/
+			text-align: center;
+		}
+		
+		div.squareDiv {
+			aspect-ratio : 1 / 1;
+			width: 90%;
+			max-width: 300px;
+			margin: auto;
+			text-align: center;
+			display: inline-block;
+		}
 		
 		.card {
 			max-width: 500px;
@@ -206,6 +290,8 @@ below is if I had an either/or .css file to reference
 			justify-content: center;
 		}
 		
+		/* MY BEAUTIFUL BUTTONS */
+		
 		button {
         	text-align: center;
 			border: none;
@@ -220,7 +306,7 @@ below is if I had an either/or .css file to reference
 			border-radius: 10%;
 			padding-left: 5px;
 			padding-right: 10px;
-			color: var(#5555ff00);
+			
 		}
 		
 		button.listitem {
@@ -254,23 +340,7 @@ below is if I had an either/or .css file to reference
 			text-shadow: 1px 1px 5px #999999;
 		}
 		
-		hr.small {
-			margin-left:40%;
-			margin-right:40%;
-			margin-top:2px;
-			margin-bottom:2px;
-		}
-
-		.inputCanvas input {
-			color: var(--fontColor2);
-			background-color: #00000000;
-			width:50%;
-			height:1.5em;
-        	font-size:1.6em;
-            border: none;
-			text-shadow: 2px 2px 5px black;
-            border-radius: 8px;
-		}
+		/* SPACIFIC STYLES */
 		
 		#description {
 			padding: 0px 20px ;
@@ -279,11 +349,46 @@ below is if I had an either/or .css file to reference
 			text-shadow: none;
 		}
 		
+		#controllerCanvas {
+			max-width:1000px;
+			max-height:400px;
+			overflow:hidden;
+		}
 		
+		#topleftcontroller {
+			float: left;
+		}
+		
+		#bottrightcontroller {
+			float: right;
+		}
+		
+		#midcontroller {
+			line-height: 100px;
+			display: inline-block;
+			vertical-align: middle;
+			text-align: center;
+		}
+		
+		/* FLUXUATION */
+		
+		@media screen and (orientation:portrait) {
+			h1 {
+				
+			}
+			
+		
+			br.inlandscape {
+				display:none;
+			}
+			
+		}
 		
 		
 	</style>
 	<script>
+	// UPPER SCRIPT AND QUICK SETTINGS
+	
 		/*
 		 */
 		//Stevo's tester. use like this: sr.x || sr.ct++ || alert(sr.ct) || sr.ct = "testing"; //ect. sr will be console only.
@@ -309,29 +414,41 @@ below is if I had an either/or .css file to reference
 				console.log(testX);
 				sr.history = sr.ct;
 			},
-			get stop () {
-				const alerted = {Syntax: "sr.stop;", Count: "unchanged at " + sr.ct, Message:sr.history};
+			stop (content = "") {
+				const alerted = {Syntax: "sr.stop;", Count: "unchanged at " + sr.ct, Message:sr.history+" Provided content: "+content};
 				console.table({alerted});
 				//This could have the ability to give a different result if the sr.stop is called while all alone.
 				//if the sr.ct is equal to sr.history then the alert should be "testing" or sr.ct with a description as to why. etc.
-				alert(sr.history);
+				alert(content+" and sr.history: "+sr.history);
 			}
+			
 		}
+		
+		var target = "";
+		var userFocus = "body";
 		
 		var player = {
 			name:"Player",
 			race:"Human",
 			bloodWound: 0,
+			bloodTolerance: 10,
 			crushWound: 0,
+			crushTolerance: 10,
 			innerWound: 0,
+			innerTolerance: 10,
 			mindWound: 0,
+			mindTolerance: 10,
 			curseWound: 0,
+			curseTolerance: 5,
+			silver: 0,
 			level: 1.0,
 			goodRep: 10,
 			badRep: 10,
 			state: [],
 			items: [],
-			titles: []
+			titles: [],
+			memory: [],
+			actToken:"Idle"
 		}
 		localStorageInitiation();
 		
@@ -351,215 +468,68 @@ below is if I had an either/or .css file to reference
 		
 		//This is to set the best press for the input. Then set the functions in jquerry
 		function isTouch() {
+		{
 			try{ document.createEvent("TouchEvent"); return true; }
 			catch(e){ return false; }
 		}
-		if(isTouch()){
-			$(document).ready(
-				function(){
-					$("button").on('touchstart',function(){
-						//The bellow function was renamed for another purpose. I was wondering iff I even need this jquery but I will know more after I try using a touchscreen.
-						//If that happens then I will need to reinstate the buttonHandler().
-						buttonHandler(this.id, this.name);
-					});
-				}
-			);
-		}else{
-			$(document).ready(
-				function(){
-					$("button").mousedown(function(){
-						buttonHandler(this.id, this.name);
-					});
-				}
-			);
+			if(isTouch()){
+				$(document).ready(
+					function(){
+						$("button").on('touchstart',function(){
+							//The bellow function was renamed for another purpose. I was wondering iff I even need this jquery but I will know more after I try using a touchscreen.
+							//If that happens then I will need to reinstate the buttonHandler().
+							buttonHandler(this.id, this.name);
+						});
+					}
+				);
+			}else{
+				$(document).ready(
+					function(){
+						$("button").mousedown(function(){
+							buttonHandler(this.id, this.name);
+						});
+					}
+				);
+			}
 		}
 	</script>
 
 </head>
 
-
-<body onload="initiateList()">
+<body onload="initiation()">
+	<div class="mainContainer">
+	
+		<div class="row">
+			<h1 name="sheetName" id="sheetName">Sermon Title</h1>
+			<p>Summary Goes Here</p>
+		</div>
+		
+		<hr>
+		
+		<div>
+			<h1 name="actToken" id="actToken">Information for EAC goes here</h1>
+		</div>
+		
+		
+		<hr>
+		
+		<h1 name="header" id="header">Test output here</h1>
+		
+	</div>
 
 	<div id="inputCanvas1" class ="inputCanvas">
 		<br>
 		<form action="#" onsubmit="submitInputProxy(); closeProxy(); return false;">
-				<input type="number" name="inputProxy" id="inputProxy" value="1">
-		</form>
+				<input type="input" name="inputProxy" id="inputProxy" value="1">
 			<p name="description" id="description"></p>
-			<button type="button" name="proxySubmit" id="proxySubmit" class="disable-select onCanvas">Submit ➤</button>
+			<button type="submit" name="proxySubmit" id="proxySubmit" class="disable-select onCanvas">Submit ➤</button>
+		</form>
+		<hr>
+		<button type="button" name="closeproxy" id="closeproxy" class="disable-select onCanvas" onclick="drawerOpenClose()">Close</button>
 	</div>
-	
-	<div id="detailsCanvas1" class ="detailsCanvas">
-		<br>
-		<h1 id="detailsTitle" class="lightText">Items title</h1>
-		<hr>
-		<p name="datails" id="datails" class="lightText"></p>
-		<hr>
-		<div>
-			<button type="button" name="addToPlayer" id="addToPlayer" class="disable-select onCanvas lightText" onclick="addToPlayer()" disabled>Add to Player</button>
-			<button type="button" name="removeFromPlayer" id="removeFromPlayer" class="disable-select onCanvas lightText" onclick="removeFromPlayer()" disabled>Remove from Player</button>
-			<br>
-			<br>
-			<button type="button" name="closeDetails" id="closeDetails" class="disable-select lightText closeBTN" onclick="closeDetails()">Close</button>
-		</div>
-	</div>
-	
-	<div id="itemsListCanvas1" class ="listCanvas">
-		<br>
-		<h1 class="lightText">Item Master List</h1>
-		<hr>
-		<div id="itemList1">
-		</div>
-		<hr>
-		<div>
-			<button type="button" name="closeItems" id="closeItems" class="disable-select closeBTN darkText" onclick="closeItemsMaster()">Close</button>
-		</div>
-	</div>
-	
-	<div id="statusListCanvas1" class ="listCanvas">
-		<br>
-		<h1 class="lightText">Status Master List</h1>
-		<hr>
-		<div id="statusList1">
-		</div>
-		<hr>
-		<div>
-			<button type="button" name="closeStatus" id="closeStatus" class="disable-select closeBTN darkText" onclick="closeStatusMaster()">Close</button>
-		</div>
-	</div>
-	
-	<div id="titlesListCanvas1" class ="listCanvas">
-		<br>
-		<h1 class="lightText">Titles Master List</h1>
-		<hr>
-		<div id="titlesList1">
-		</div>
-		<hr>
-		<div style="align: center">
-			<button type="button" name="closeTitles" id="closeTitles" class="disable-select closeBTN darkText" onclick="closeTitlesMaster()">Close</button>
-		</div>
-	</div>
-	
-	<div id="endeavorCanvas" class ="bottomTabCanvas">
-		<div id="endeavorList" class="listOfItems">
-			<button type="button" name="pass" id="pass" class="disable-select listitem  darkText">Advance to the next area</button>
-			<hr class="small">
-			<button type="button" name="return" id="return" class="disable-select listitem darkText">Return the way you came</button>
-			<hr class="small">
-			<button type="button" name="move" id="move" class="disable-select listitem darkText">Push/Pull/Lift/Rotate</button>
-			<hr class="small">
-			<button type="button" name="break" id="break" class="disable-select listitem darkText">Cause damage to something</button>
-			<hr class="small">
-			<button type="button" name="operate" id="operate" class="disable-select listitem darkText">Operate something</button>
-			<hr class="small">
-			<button type="button" name="collect" id="collect" class="disable-select listitem darkText">Collect something</button>
-			<hr class="small">
-			<button type="button" name="throw" id="throw" class="disable-select listitem darkText">Drop or throw something</button>
-			<hr class="small">
-			<button type="button" name="instagate" id="instagate" class="disable-select listitem darkText">Initiate interaction with something or someone</button>
-			<hr class="small">
-			<button type="button" name="other" id="other" class="disable-select listitem darkText">Attempt something not listed</button>
-		</div>
-		<hr>
-		<div>
-			<button type="button" name="closeEndeavor" id="closeEndeavor" class="disable-select closeBTN darkText" onclick="closeEndeavor()">Close</button>
-		</div>
-	</div>
-	
-	<div id="discoverCanvas" class ="bottomTabCanvas">
-		<div id="discoverList" class="listOfItems">
-			<button type="button" name="ground" id="ground" class="disable-select listitem darkText">Be still and listen, look around</button>
-			<hr class="small">
-			<button type="button" name="observe" id="observe" class="disable-select listitem darkText">Observe something/someone</button>
-			<hr class="small">
-			<button type="button" name="meditate" id="meditate" class="disable-select listitem darkText">Meditate/reflect/recall</button>
-			<hr class="small">
-			<button type="button" name="rifle" id="rifle" class="disable-select listitem darkText">Quickly rifle through something</button>
-			<hr class="small">
-			<button type="button" name="peek" id="peek" class="disable-select listitem darkText">Listen through/peek inside</button>
-			<hr class="small">
-			<button type="button" name="rifle" id="rifle" class="disable-select listitem darkText">Smell/feel/speak to/clean</button>
-			<hr class="small">
-			<button type="button" name="rifle" id="rifle" class="disable-select listitem darkText">Do previous action more thoroughly</button>
-			<hr class="small">
-			<button type="button" name="other" id="other" class="disable-select listitem darkText">Attempt something not listed</button>
-		</div>
-		<hr>
-		<div>
-			<button type="button" name="closeDiscover" id="closeDiscover" class="disable-select closeBTN darkText" onclick="closeDiscover()">Close</button>
-		</div>
-	</div>
-	
-	<div id="partyCanvas" class ="bottomTabCanvas">
-		<div id="partyList" class="listOfItems">
-			<button type="button" name="share" id="share" class="disable-select listitem darkText">Share items with someone</button>
-			<hr class="small">
-			<button type="button" name="spar" id="spar" class="disable-select listitem darkText">Spar with someone</button>
-			<hr class="small">
-			<button type="button" name="consult" id="consult" class="disable-select listitem darkText">Consult with group</button>
-			<hr class="small">
-			<button type="button" name="banter" id="banter" class="disable-select listitem darkText">Banter session</button>
-			<hr class="small">
-			<button type="button" name="partytrick" id="partytrick" class="disable-select listitem darkText">Use support skill on party member</button>
-			<hr class="small">
-			<button type="button" name="npc" id="npc" class="disable-select listitem darkText">Interact with an NPC in the party</button>
-			<hr class="small">
-			<button type="button" name="other" id="other" class="disable-select listitem darkText">Attempt something not listed</button>
-		</div>
-		<hr>
-		<div>
-			<button type="button" name="closeParty" id="closeParty" class="disable-select closeBTN darkText" onclick="closeParty()">Close</button>
-		</div>
-	</div>
-	
-	<div id="selfCanvas" class ="bottomTabCanvas">
-		<div id="selfList" class="listOfItems">
-			<button type="button" name="itemuse" id="itemuse" class="disable-select listitem darkText">Use an item</button>
-			<hr class="small">
-			<button type="button" name="selfcheck" id="selfcheck" class="disable-select listitem darkText">Inspect yourself</button>
-			<hr class="small">
-			<button type="button" name="equipment" id="equipment" class="disable-select listitem darkText">Change/inspect equipment</button>
-			<hr class="small">
-			<button type="button" name="change" id="change" class="disable-select listitem darkText">Fabricate/dimantle item</button>
-			<hr class="small">
-			<button type="button" name="recover" id="recover" class="disable-select listitem darkText">Spend a moment to recover</button>
-			<hr class="small">
-			<button type="button" name="write" id="write" class="disable-select listitem darkText">Record something</button>
-			<hr class="small">
-			<button type="button" name="other" id="other" class="disable-select listitem darkText">Attempt something not listed</button>
-		</div>
-		<hr>
-		<div>
-			<button type="button" name="closeSelf" id="closeSelf" class="disable-select closeBTN darkText" onclick="closeSelf()">Close</button>
-		</div>
-	</div>
-	
-	<div id="enemyCanvas" class ="bottomTabCanvas">
-		<div id="enemyList" class="listOfItems">
-			<button type="button" name="engage" id="engage" class="disable-select listitem darkText">Engage new enemy</button>
-			<hr class="small">
-			<button type="button" name="weapon" id="weapon" class="disable-select listitem darkText">Attack enemy with weapon</button>
-			<hr class="small">
-			<button type="button" name="stuffatk" id="stuffatk" class="disable-select listitem darkText">Use an item against an enemy\(s\)</button>
-			<hr class="small">
-			<button type="button" name="fist" id="fist" class="disable-select listitem darkText">Use a non-weapon attack</button>
-			<hr class="small">
-			<button type="button" name="block" id="block" class="disable-select listitem darkText">Take a defensive stance</button>
-			<hr class="small">
-			<button type="button" name="flee" id="flee" class="disable-select listitem darkText">Break from all engagements</button>
-			<hr class="small">
-			<button type="button" name="pacify" id="pacify" class="disable-select listitem darkText">Attempt to pacify the enemy</button>
-			<hr class="small">
-			<button type="button" name="other" id="other" class="disable-select listitem darkText">Attempt something not listed</button>
-		</div>
-		<hr>
-		<div>
-			<button type="button" name="closeSelf" id="closeSelf" class="disable-select closeBTN darkText" onclick="closeSelf()">Close</button>
-		</div>
-	</div>
-	
-	<div id="npcCanvas" class ="bottomTabCanvas">
-		<div id="npcList" class="listOfItems">
+
+	<div id="bottomTabCanvas" class ="bottomTabCanvas">
+		<div id="bottomList" class="listOfItems">
 			<button type="button" name="engage" id="engage" class="disable-select listitem darkText">Engage with an NPC</button>
 			<hr class="small">
 			<button type="button" name="talk" id="talk" class="disable-select listitem darkText">Converse with NPC</button>
@@ -576,555 +546,76 @@ below is if I had an either/or .css file to reference
 		</div>
 		<hr>
 		<div>
-			<button type="button" name="closeSelf" id="closeSelf" class="disable-select closeBTN darkText" onclick="closeSelf()">Close</button>
+			<button type="button" name="closeBottom" id="closeBottom" class="disable-select closeBTN darkText" onclick="drawerOpenClose()">Close</button>
 		</div>
 	</div>
 
-	<div class="mainContainer">
-	
-		<div class="row">
-			<h1 name="sheetName" id="sheetName">The Duke of Afthairetos Character Sheet</h1>
-		</div>
-		
-		<hr>
-		
-		<h1 name="header" id="header">Actions</h1>
-		
-		<div>
-			<div name="actionList" id="actionList" class="listOfItems">
-				<button type="button" name="endeavor" id="endeavor" class="disable-select listitem" onclick="showEndeavor()">Endeavor</button>
-				<button type="button" name="discover" id="discover" class="disable-select listitem" onclick="showDiscover()">Discover</button>
-				<button type="button" name="party" id="party" class="disable-select listitem" onclick="showParty()">Party</button>
-				<button type="button" name="self" id="self" class="disable-select listitem" onclick="showSelf()">Self</button>
-				<button type="button" name="enemy" id="enemy" class="disable-select listitem" onclick="">Enemy</button>
-				<button type="button" name="npc" id="npc" class="disable-select listitem" onclick="">NPC</button>
-			</div>
-		</div>
-		
-		<hr>
-		
-		<h1 name="header" id="header">Character Tokens</h1>
-		
-		<div class="cardHolder">
-			<div class="card">
-				
-					<button type="button" name="upBlood" id="upBlood" class="disable-select token darkerShadow" onclick="tokenBTNhandler('upBlood')">Blood Wound</button>
-				
-					<button type="button" name="downBlood" id="downBlood" class="disable-select number" onclick="tokenBTNhandler('downBlood')">-1</button>
-				
-			</div>
-			<div class="card">
-				
-					<button type="button" name="upCrush" id="upCrush" class="disable-select token" onclick="tokenBTNhandler('upCrush')">Crush Wound</button>
-				
-					<button type="button" name="downCrush" id="downCrush" class="disable-select number" onclick="tokenBTNhandler('downCrush')">-1</button>
-				
-			</div>
-			<div class="card">
-				
-					<button type="button" name="upInner" id="upInner" class="disable-select token" onclick="tokenBTNhandler('upInner')">Inner Wound</button>
-				
-					<button type="button" name="downInner" id="downInner" class="disable-select number" onclick="tokenBTNhandler('downInner')">-1</button>
-				
-			</div>
-			<div class="card">
-				
-					<button type="button" name="upMind" id="upMind" class="disable-select token" onclick="tokenBTNhandler('upMind')">Mind Wound</button>
-				
-					<button type="button" name="downMind" id="downMind" class="disable-select number" onclick="tokenBTNhandler('downMind')">-1</button>
-				
-			</div>
-			<div class="card">
-				
-					<button type="button" name="upCurse" id="upCurse" class="disable-select token" onclick="tokenBTNhandler('upCurse')">Curse Wound</button>
-				
-					<button type="button" name="downCurse" id="sownCurse" class="disable-select number" onclick="tokenBTNhandler('downCurse')">-1</button>
-				
-			</div>
-		</div>
-		
-		<hr>
-		
-		<h1 name="header" id="header">Status</h1>
-		
-		<div>
-			<div name="ownStatus" id="ownStatus" class="listOfItems">				
-				<button type="button" name="item" id="item" class="disable-select listitem" onclick="showStatusMaster()">+</button>
-			</div>
-		</div>
-		
-		<hr>
-		
-		<h1 name="header" id="header">Items</h1>
-		
-		<div>
-			<div name="ownItems" id="ownItems" class="listOfItems">
-				<button type="button" name="item" id="item" class="disable-select listitem" onclick="showItemsMaster()">+</button>
-			</div>
-		</div>
-		
-		<hr>
-		
-		<h1 name="header" id="header">Titles</h1>
-		
-		<div>
-			<div name="ownTitles" id="ownTitles" class="listOfItems">
-				<button type="button" name="item" id="item" class="disable-select listitem" onclick="showTitlesMaster()">+</button>
-			</div>
-		</div>
-		
-			
-	</div>
 </body>
-
-
 <script>
-	
-	
-	function initiateList(){
-		//localStorageInitiation();//not sure if i should do this in on
-		populateMasterList("status");
-		populateMasterList("items");
-		populateMasterList("titles");
-		syncPageToPlayer();
-	}
-	
-	//needs an initiation for the three lists in the visible main body canvas based on the players attributes
-	
-	function populateMasterList(listToPopulate = "titles"){
-		//This is to get the correct list from the three.
-		var listOf = [0,0];
-		var whichListElementId = "titlesList1";
-		var br = document.createElement("br");
-		var list = document.getElementById(whichListElementId);
-		if(listToPopulate == "status"){
-			 listOf = gameStatus();
-			 whichListElementId = "statusList1";
-		}else if(listToPopulate == "items"){
-			 listOf = gameItems();
-			 whichListElementId = "itemList1";
-		}else{// == "titles";
-			 listOf = gameTitles();
-			 whichListElementId = "titlesList1";
-		}
-		for (let i = 0; i < listOf.length; i++){
-			br = document.createElement("br");
-			list = document.getElementById(whichListElementId);
-			addToList(whichListElementId, listOf[i]);
-			list.insertBefore(br, list.children[1]);
-		}
-	}
-	
-	function syncPageToPlayer(){
-		const status = player.state;
-		const items = player.items;
-		const titles = player.titles;
+	function initiation(){
 		
-		for (let i = 0; i < status.length; i++){
-			addToList("ownStatus", status[i]);
+		
+	}
+	
+	//This should open close the drawers listed in the canvas array. Callback with no argument will close, spacific will open.
+	function drawerOpenClose(specific = "close"){
+		var element = document.getElementById("tempCenterCanvas");
+		var axis = "horizontal";
+		if(specific != "close"){
+			element = document.getElementById(specific);
 		}
-		for (let i = 0; i < items.length; i++){
-			addToList("ownItems", items[i]);
-		}
-		for (let i = 0; i < titles.length; i++){
-			addToList("ownTitles", titles[i]);
-		}
-	}
-	
-	//This will open the inputCanvas and select the inputProxy input field. It will also pass the buttonID arg to the 'target' variable.
-	//Keyboard changes the 50% and smashes drawer https://stackoverflow.com/questions/4207880/android-how-do-i-prevent-the-soft-keyboard-from-pushing-my-view-up
-	function showProxyCanvas(buttonID = "offsetCount") {//need to stop the 'goal' from making input a 0.
-		var text = Number(document.getElementById(buttonID).innerHTML);
-		var inputCanvasHeight = document.getElementById("inputCanvas1").clientHeight;
-		if(inputCanvasHeight != 0) return;
-		//if(buttonID == "goal") text = goal.toString();
-		if(isNaN(text)) text = 0;
-		target = buttonID;
-		updateText("inputProxy", text);
-		updateText("description", information(buttonID));
-		document.getElementById("inputCanvas1").style.height = "100%";
-		document.getElementById("inputProxy").focus();
-		document.getElementById("inputProxy").select();
-	}
-	
-	function showDetailsCanvas(buttonID = "Error") {
-		target = buttonID;
-		updateText("datails", information(buttonID));
-		updateText("detailsTitle", buttonID);
-		permissionToAddRemove(buttonID);
-		document.getElementById("detailsCanvas1").style.height = "100%";
-	}
-	
-	function permissionToAddRemove(targetID = target){
-		const hasListStatus = player.state.includes(targetID);
-		const hasListItem = player.items.includes(targetID);
-		const hasListTitle = player.titles.includes(targetID);
-		if(hasListStatus || hasListItem || hasListTitle){
-			document.getElementById("removeFromPlayer").disabled = false;
-			document.getElementById("addToPlayer").disabled = true;
-		}else{
-			document.getElementById("addToPlayer").disabled = false;
-			document.getElementById("removeFromPlayer").disabled = true;
-		}
-		//if the player can have multiple of the items.
-		if(hasListItem)document.getElementById("addToPlayer").disabled = false;
-	}
-	
-	//This will open statusListCanvas1
-	function showStatusMaster() {
-		//closeStatusMaster();
-		closeItemsMaster();
-		closeTitlesMaster();
-		closeEndeavor();
-		closeDiscover();
-		closeParty();
-		closeSelf();
-		document.getElementById("statusListCanvas1").style.width = "100%";
-	}
-	
-	//This will open itemsListCanvas1
-	function showItemsMaster() {
-		closeStatusMaster();
-		//closeItemsMaster();
-		closeTitlesMaster();
-		closeEndeavor();
-		closeDiscover();
-		closeParty();
-		closeSelf();
-		document.getElementById("itemsListCanvas1").style.width = "100%";
-	}
-	
-	//This will open titlesListCanvas1
-	function showTitlesMaster() {
-		closeStatusMaster();
-		closeItemsMaster();
-		//closeTitlesMaster();
-		closeEndeavor();
-		closeDiscover();
-		closeParty();
-		closeSelf();
-		document.getElementById("titlesListCanvas1").style.width = "100%";
-	}
-	
-	//This should be removed later.
-	function showBottomDrawer(){
-		alert("showBottomDrawer was just called. You need to have this changed to the specific bottom tab for each action list");
-	}
-	
-	//This will open the bottom tab.
-	function showEndeavor(){
-		closeStatusMaster();
-		closeItemsMaster();
-		closeTitlesMaster();
-		//closeEndeavor();
-		closeDiscover();
-		closeParty();
-		closeSelf();
-		document.getElementById("endeavorCanvas").style.height = "60%";
-	}
-	
-	//This will open the bottom tab.
-	function showDiscover(){
-		closeStatusMaster();
-		closeItemsMaster();
-		closeTitlesMaster();
-		closeEndeavor();
-		//closeDiscover();
-		closeParty();
-		closeSelf();
-		document.getElementById("discoverCanvas").style.height = "60%";
-	}
-	
-	//This will open the bottom tab.
-	function showParty(){
-		closeStatusMaster();
-		closeItemsMaster();
-		closeTitlesMaster();
-		closeEndeavor();
-		closeDiscover();
-		//closeParty();
-		closeSelf();
-		document.getElementById("partyCanvas").style.height = "60%";
-	}
-	
-	//This will open the bottom tab.
-	function showSelf(){
-		closeStatusMaster();
-		closeItemsMaster();
-		closeTitlesMaster();
-		closeEndeavor();
-		closeDiscover();
-		closeParty();
-		//closeSelf();
-		document.getElementById("selfCanvas").style.height = "60%";
-	}
-	//The Duke of Afthaíretos
-		//>	I wish to make a bottom drawer as a sublist of prompted from the main page actions.
-		//>  	   /\              /\
-		//>  	_/  \_        _/  \_
-		//>	CONTRUCTION
-		//>  	   /\              /\
-		//>  	_/  \_        _/  \_
-
-	
-	
-	//This will simply close the inputCanvas1.
-	function closeProxy() {
-		document.getElementById("inputCanvas1").style.height = "0";
-		document.getElementById("inputProxy").blur();
-	}
-	
-	//This will simply close the detailsCanvas1.
-	function closeDetails() {
-		document.getElementById("detailsCanvas1").style.height = "0";
-		document.getElementById("inputProxy").blur();
-	}
-	
-	//This will simply close the detailsCanvas1.
-	function closeStatusMaster() {
-		document.getElementById("statusListCanvas1").style.width = "0";
-		document.getElementById("inputProxy").blur();
-	}
-	
-	//This will simply close the itemsListCanvas1.
-	function closeItemsMaster() {
-		document.getElementById("itemsListCanvas1").style.width = "0";
-		document.getElementById("inputProxy").blur();
-	}
-	
-	//This will simply close the titlesListCanvas1.
-	function closeTitlesMaster() {
-		document.getElementById("titlesListCanvas1").style.width = "0";
-		document.getElementById("inputProxy").blur();
-	}
-	
-	//This will simply close the bottomTabCanvas.
-	function closeEndeavor(){
-		document.getElementById("endeavorCanvas").style.height = "0";
-		document.getElementById("inputProxy").blur();
-	}
-	
-	//This will simply close the bottomTabCanvas.
-	function closeDiscover(){
-		document.getElementById("discoverCanvas").style.height = "0";
-		document.getElementById("inputProxy").blur();
-	}
-	
-	//This will simply close the bottomTabCanvas.
-	function closeParty(){
-		document.getElementById("partyCanvas").style.height = "0";
-		document.getElementById("inputProxy").blur();
-	}
-	
-	//This will simply close the bottomTabCanvas.
-	function closeSelf(){
-		document.getElementById("selfCanvas").style.height = "0";
-		document.getElementById("inputProxy").blur();
-	}
-	
-	//This will simply close the bottomTabCanvas. Thsi should be removed later.
-	function closebottomTab(){
-		alert("Something is still using closebottomTab() and that was meant to bcome the specific drawer");
-		document.getElementById("bottomTabCanvas").style.height = "0";
-		document.getElementById("inputProxy").blur();
-	}
-	
-	function addToList(listId, tag = target) {
-		const newButton = document.createElement("BUTTON");
-		const tagText = document.createTextNode(tag);
-		const list = document.getElementById(listId);
-		var forMasterList = "";
-		if(listId == "statusList1"||listId == "itemList1"||listId == "titlesList1") forMasterList = "Master";
-		newButton.appendChild(tagText);
-		newButton.setAttribute("id",tag+forMasterList);
-		newButton.setAttribute("name",tag);
-		if(forMasterList == "Master"){
-		newButton.setAttribute("class","darkText disable-select");
-		}else{
-			newButton.setAttribute("class","disable-select");
-		}
-		newButton.setAttribute("onclick","showDetailsCanvas('"+tag+"')");
-		list.insertBefore(newButton,list.children[0]);
-	}
-	
-	function removeFromList(listId, tag = target) {
-		const targetDiv = document.getElementById(listId);
-		const targetBtn = document.getElementById(tag);
-		targetBtn.remove();
-		//I will need to learn mare about selecting from a spacific parent.
-	}
-
-	//This adds values to the three player attributes arrays. Based on the item. Mostly it has to identify of which 3 attributes it belongs.
-	function addToPlayer(tag = target){//This will also ad the item to the main page list items. besides the innation of those lists.
-		if(gameStatus(tag)){
-			player.state.push(tag);
-			addToList("ownStatus", tag);
-		}
-		else if(gameItems(tag)) 
-		{
-			player.items.push(tag);
-			addToList("ownItems", tag);
-		}else if(gameTitles(tag))
-		{
-			player.titles.push(tag);
-			addToList("ownTitles", tag);
-		}else{
-			alert("addToPlayer() had an error. Maybe you have not entered this tag to the game.")
-			sr.ct = "addToPlayer "+target;
-		};
-		permissionToAddRemove(tag);
-		saveToLocalStorage();
-	}
-
-	function removeFromPlayer(tag = target){
-		var index = -1;
-		if(player.state.includes(tag)){
-			index = player.state.indexOf(tag);
-			player.state.splice(index,1);
-			removeFromList("ownStatus", tag);
-		}
-		else if(player.items.includes(tag)) 
-		{
-			index = player.items.indexOf(tag);
-			player.items.splice(index,1);
-			removeFromList("ownItems", tag);
-		}else if(player.titles.includes(tag))
-		{
-			index = player.titles.indexOf(tag);
-			player.titles.splice(index,1);
-			removeFromList("ownTitles", tag);
-		}else{
-			//alert("removeFromPlayer() had an error. This gets it target from an argument or the target variable");
-		};
-		permissionToAddRemove(tag);
-		saveToLocalStorage();
-	}
-
-	//This will change text on an element or value in a number input.
-	function updateText(elementID, text) {
-		x = document.getElementById(elementID).type;
-		x == "number" ? document.getElementsByName(elementID)[0].value = text : document.getElementById(elementID).innerHTML = text;
-	}
-	
-	//This will return any defined title that I have defines. This returns name only. Refer to the information() function for the description.
-	function gameStatus(specific = "All"){
-	//I would like them all to be capable of returning based on number or name.
-	const allStatus = [
-			"Dead",
-			"Hungry",
-			"Drunk",
-			"Sick"
+		//list of canvases to ensure closeure.
+		const canvas = [
+			"inputCanvas1",
+			"detailsCanvas1",
+			"statusListCanvas1",
+			"itemsListCanvas1",
+			"titlesListCanvas1",
+			"endeavorCanvas",
+			"discoverCanvas",
+			"partyCanvas",
+			"selfCanvas",
+			"enemyCanvas",
+			"npcCanvas",
+			"playerCanvas",
+			"controllerCanvas",
+			
+			"tempCanvasV",
+			"tempCanvasH",
+			
+			"tempCenterCanvas"
 		];
-		if(specific == "All"){
-			return allStatus;
-		}else{
-			return allStatus.includes(specific);
+		
+		if(element.classList.contains("vertical") && specific != "close"){
+			axis = "vertical";
 		}
-	//If the specific if a string I would like it to search allStatus for the name and the return if it is true.
-	}
-	
-	//This will return any defined title that I have defines. This returns name only. Refer to the information() function for the description.
-	function gameItems(specific = "All"){
-		var allItems  = [
-			"Thing",
-			"Rock",
-			"Stick",
-			"Cord",
-		];
-		if(specific == "All"){
-			return allItems;
-		}else{
-			return allItems.includes(specific);
+		
+		
+		
+		for(let i = 0; i < canvas.length; i++){
+			if(canvas[i] == specific && userFocus != canvas[i]){
+				if(specific == "statusListCanvas1" || specific == "itemsListCanvas1" || specific == "titlesListCanvas1" || specific == "tempCanvasH"){
+					document.getElementById(specific).style.width = "100%";
+				}else{
+					document.getElementById(specific).style.height = "100%";
+				}
+				userFocus = specific;
+			}else{
+				if(canvas[i] == userFocus)userFocus = "body";
+				if(canvas[i] == "statusListCanvas1" || canvas[i] == "itemsListCanvas1" || canvas[i] == "titlesListCanvas1" || canvas[i] == "tempCanvasH"){
+					if(document.getElementById(canvas[i])!== null) document.getElementById(canvas[i]).style.width = "0%";
+					
+				}else{
+					if(document.getElementById(canvas[i])!== null) document.getElementById(canvas[i]).style.height = "0%";
+				}
+			}
+			//document.getElementById("inputProxy").blur();
 		}
-		//If the specific if a string I would like it to search allItems for the name and the return if it is true.
 	}
 	
-	//This will return any defined title that I have defines. This returns name only. Refer to the information() function for the description.
-	function gameTitles(specific = "All"){
-		var allTitles = [
-			"Bwarler",
-			"Swordsman in Training"
-		];
-		if(specific == "All"){
-			return allTitles;
-		}else{
-			return allTitles.includes(specific);
-		}
-		//If the specific if a string I would like it to search allTitles for the name and the return if it is true.
-	}
-	
-	//This will return the information for the user to read from anywhere.
-	function information(selection){
-		switch(selection) {
-		//This will list Various uncatagorized descriptions.
-			case "Dead":
-				return "The player has died! You will have to wait to be reclaimed by your legend.";
-				break;
-		//Insert item descriptions below here.
-			case "Thing":
-				return "This is a thing. It has various attributes. I don't even know what this thing is.";
-				break;	
-		//Place status alteration descriptions below this point.
-			case "Hopeful":
-				return "You feel hope for what can happen. This will protect you from the first \"Mind\" or \"Curse\" damage inflicted on you";
-				break;		
-		//Description for Titles to you honor are catalogged here.
-			case "Swordsman in Training":
-				return "You are getting much more adept with your weapon! Watch where you swing that thing.";
-				break;	
-			case "Error":
-				return "This is an error message. This Item is not defined properly. Please pass this on to the app devolper.";
-				break;	
-			default://If you are missing an entry.
-				return "There is no information for this yet. Have the developer fix this for the sake of the world!";
-		}
-	
-	}
-	
-	//This is to save the variables to the localStorage for use next time.
-	function saveToLocalStorage() {
-		localStorage.setItem("player", JSON.stringify(player));
-	}
-	
-	//This is for the actions of controlling the tokens
-	function actBTNactions(buttonID = target){
-		if(typeof buttonID != "string") return;
-		switch(buttonID) {
-			case "upBlood":
-				//bloodToken++;//This will be a vraiable
-				//updateText("boxes", boxes);//updateText("boxes", boxes); update the blood damage token here.
-				break;
-			case "downBlood":
-				//bloodToken--;//This will be a vraiable
-				//updateText("boxes", boxes); update the blood damage token here.
-				break;
-		}
-		saveToLocalStorage();
-	}
-
-	//This is for the actions of controlling the tokens
-	function tokenBTNhandler(buttonID = target){
-		if(typeof buttonID != "string") return;
-		switch(buttonID) {
-			case "upBlood":
-				//bloodToken++;//This will be a vraiable
-				//updateText("boxes", boxes);//updateText("boxes", boxes); update the blood damage token here.
-				break;
-			case "downBlood":
-				//bloodToken--;//This will be a vraiable
-				//updateText("boxes", boxes); update the blood damage token here.
-				break;
-		}
-		saveToLocalStorage();
-	}
-	
-	function buttonHandler(id, name){
-		sr.ct = "This from the buttonHandler()"
-	}
-	
-	
-	//Used to apply the inputProxy input field value to the appropriate variable based on the variable 'target.' 
+	//This will now be to process user input.This should be different from the other button inputs.
 	function submitInputProxy() {
+	alert("submit was success Probe 81");
 		var newInput = Number(document.getElementById("inputProxy").value);
 		switch(target) {
 			case "boxes":
@@ -1132,27 +623,9 @@ below is if I had an either/or .css file to reference
 				//updateText("boxes", boxes);
 				break;
 			default:
-					
+				alert(newInput);
 		}
-		saveToLocalStorage();
-		//updateText("countReadout", calcTotal());
-		//newStats();
+		//saveToLocalStorage();
 	}
-
-
-
-		/*  	   /\              /\
-		//>  	_/  \_        _/  \_
-		//>	CONTRUCTION
-		//>  	   /\              /\
-		//>  	_/  \_        _/  \_
-		*/
-
-	
 </script>
-
-
-
 </html>
-
-
